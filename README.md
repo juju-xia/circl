@@ -155,10 +155,13 @@ Alternatively, look at the [Cloudflare Go](https://github.com/cloudflare/go/tree
 Library comes with number of make targets which can be used for testing and
 benchmarking:
 
-- ``test`` performs testing of the binary.
+- ``test`` runs the unit tests.
 - ``bench`` runs benchmarks.
 - ``cover`` produces coverage.
-- ``lint`` runs set of linters on the code base.
+- ``lint`` runs the configured linters.
+
+A deterministic [bar chart fixture](./docs/bar-chart-fixture.md) is available on
+the `test/bar-chart` branch for repository-comparison tooling checks.
 
 ## Contributing
 
