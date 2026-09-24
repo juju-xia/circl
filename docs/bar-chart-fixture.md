@@ -1,9 +1,9 @@
 # Bar Chart Fixture
 
 This branch contains deterministic, non-cryptographic changes for exercising a
-repository comparison chart. The changes intentionally avoid production code so
-they can be used for visual and numerical checks without affecting CIRCL's
-security-sensitive packages.
+repository comparison chart. The changes intentionally avoid production code and
+use documentation plus test-only code, so they can be used for visual and
+numerical checks without affecting CIRCL's security-sensitive packages.
 
 ## Dimensions To Check
 
@@ -14,6 +14,7 @@ security-sensitive packages.
 | Deletions | The sum of the second column in `git diff --numstat` |
 | Net lines | Additions minus deletions |
 | Commits | The number of commits in the selected revision range |
+| Per category | The chart's grouping should match the selected file paths |
 
 ## Useful Revision Ranges
 
@@ -32,3 +33,17 @@ git show --numstat --oneline <commit>
 
 The fixture includes multiple small commits so a chart can be checked against
 both per-commit values and the cumulative branch total.
+
+## Numerical Checks
+
+Use machine-readable output when verifying a chart:
+
+```sh
+git diff --numstat main...test/bar-chart
+git diff --shortstat main...test/bar-chart
+git rev-list --count main..test/bar-chart
+```
+
+Compare the plotted file count against `git diff --name-only main...test/bar-chart
+| wc -l`. If a chart groups changes by directory or file type, verify the sum of
+all groups before checking their relative bar lengths.
