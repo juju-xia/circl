@@ -37,4 +37,9 @@ func TestBarChartFixtureCounts(t *testing.T) {
 			totalRemoved,
 		)
 	}
+
+	totalLines := totalAdded + totalRemoved
+	if totalLines != 59 {
+		t.Fatalf("total lines: got %d, want 59", totalLines)
+	}
 }

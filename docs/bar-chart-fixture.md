@@ -13,6 +13,7 @@ numerical checks without affecting CIRCL's security-sensitive packages.
 | Additions | The sum of the first column in `git diff --numstat` |
 | Deletions | The sum of the second column in `git diff --numstat` |
 | Net lines | Additions minus deletions |
+| Total lines | Additions plus deletions |
 | Commits | The number of commits in the selected revision range |
 | Per category | The chart's grouping should match the selected file paths |
 
